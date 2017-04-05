@@ -47,7 +47,15 @@ function every(predicate, theArray) {
 }
 
 function some(predicate, theArray) {
-
+  if(theArray.length === 0){
+    return false;
+  }
+  for(var i = 0; i < theArray.length; i++){
+    if(predicate(theArray[i])){
+      return true;
+    }
+  }
+  return false;
 }
 
 function indexOf(item, theArray) {

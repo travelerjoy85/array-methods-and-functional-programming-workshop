@@ -80,11 +80,26 @@ function findIndex(predicate, theArray) {
 }
 
 function first(n, theArray) {
-
+  var newArr = [];
+  if(arguments.length === 1 && typeof(n) === "object"){
+    return n[0];
+  }
+  else if(arguments.length === 2 && typeof(n) === "number"){
+    if(n > 0 && n < theArray.length){
+      return theArray.slice(0, n);
+    }
+    else if(n < 0){
+      return newArr;
+    }
+  }
+  return theArray;
 }
 
 function last(n, theArray) {
-
+  var newArr = [];
+  if(arguments.length === 1 && typeof(n) === "object"){
+    return theArray[theArray.length-1];
+  }
 }
 
 function pluck(property, arrayOfObjects) {

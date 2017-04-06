@@ -98,8 +98,17 @@ function first(n, theArray) {
 function last(n, theArray) {
   var newArr = [];
   if(arguments.length === 1 && typeof(n) === "object"){
-    return theArray[theArray.length-1];
+    return n[n.length - 1];
   }
+  else if(arguments.length ===2 && typeof(n) === "number"){
+    if(n > 0 && n < theArray.length){
+      return theArray.slice(theArray.length-n, theArray.length);
+    }
+    else if(n < 0){
+      return newArr;
+    }
+  }
+  return theArray;
 }
 
 function pluck(property, arrayOfObjects) {

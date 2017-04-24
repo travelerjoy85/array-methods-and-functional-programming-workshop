@@ -136,11 +136,22 @@ function pluck(property, arrayOfObjects) {
 }
 
 function flatten(theArray) {
-  
+  var newArr = [];
+  for(var i = 0; i < theArray.length; i++){
+    if(Array.isArray(theArray[i])){
+      newArr = newArr.concat(flatten(theArray[i]));
+    }
+    else{
+      newArr.push(theArray[i]);
+    }
+  }
+  return newArr;
 }
 
 function negate1(predicate) {
-
+  return function(){
+    return !predicate.apply(this, arguments);
+  };
 }
 
 function negate2(predicate) {
